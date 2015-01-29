@@ -8,6 +8,27 @@
                                                                                   \ \____/
                                                                                    \/___/
 
+This is a patched Underscore.js for use in QML. In this example, I use it in a JavaScript
+file:
+
+```
+.pragma library
+.import "underscore/underscore.js" as U
+
+var _ = U.init();
+
+function doNothing(json) {
+    return _.map(json, _.identity );
+}
+```
+
+For use directly in QML, the following *might* work (not tested):
+
+```
+import "underscore.js" as U
+property var _: U.init();
+```
+
 Underscore.js is a utility-belt library for JavaScript that provides
 support for the usual functional suspects (each, map, reduce, filter...)
 without extending any core JavaScript objects.
